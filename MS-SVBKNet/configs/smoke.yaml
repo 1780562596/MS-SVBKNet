@@ -1,0 +1,72 @@
+experiment:
+  name: smoke
+  output_dir: runs
+  seed: 7
+  deterministic: true
+  device: cpu
+
+data:
+  root: data/toy
+  train_split: train
+  val_split: val
+  test_split: test
+  train_index: ""
+  val_index: ""
+  test_index: ""
+  blur_variant: blur
+  enforce_index_variant: true
+  persistent_workers: false
+  enforce_scene_disjoint: true
+  expected_trainval_pairs: 0
+  expected_test_pairs: 0
+  expected_trainval_scenes: 0
+  expected_test_scenes: 0
+  crop_size: 64
+  num_workers: 0
+
+model:
+  base_channels: 4
+  degradation_channels: 8
+  num_kernels: 4
+  kernel_size: 5
+  use_mdrm: true
+  fuse_mdrm_to_generator: true
+  use_svbkm: true
+  dictionary_mode: learned
+  use_crcm: true
+  discriminator_global_pool: true
+
+loss:
+  lambda_frequency: 0.10
+  lambda_adversarial: 0.001
+  lambda_reblur: 0.10
+  cred_initial: 0.10
+  cred_maximum: 3.0
+  cred_momentum: 0.98
+  reliability_alpha: 8.0
+  detach_reliability: true
+  gradient_penalty: 1.0
+  gan_mode: wgan_gp
+
+train:
+  epochs: 1
+  batch_size: 1
+  lr_generator: 0.00005
+  lr_discriminator: 0.00005
+  lr_blur: 0.0001
+  betas: [0.0, 0.9]
+  grad_clip: 5.0
+  amp: false
+  preview_interval: 1
+  max_steps_per_epoch: 1
+  val_lpips: false
+
+eval:
+  tile: 0
+  overlap: 8
+  crop_border: 0
+  color_space: rgb
+  metric_protocol: float_rgb
+  lpips: false
+  lpips_backend: official_vgg16
+  max_images: 1

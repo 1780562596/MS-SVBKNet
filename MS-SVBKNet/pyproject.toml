@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ms-svbknet"
+version = "1.3.0"
+description = "MS-SVBKNet: dynamic scene image deblurring with spatially varying blur kernels and reliable reblurring consistency"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+include = ["ms_svbknet*"]

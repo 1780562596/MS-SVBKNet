@@ -13,7 +13,7 @@ PyTorch code for **A dynamic scene image deblurring method based on multi-scale 
 | GoPro | 31.02 dB | 0.941 | 0.073 |
 | GS-Blur | 30.25 dB | 0.933 | 0.080 |
 
-代码包含官方 LPIPS v0.1 / VGG16 评测接口。预训练权重、论文使用的固定数据划分 CSV、论文链接及正式引用信息尚未随本版本提供。使用自建划分训练时，请保存划分清单及评测记录。版本检查范围见 [验证说明](docs/VERIFICATION.md)。
+
 
 ## 环境安装
 
